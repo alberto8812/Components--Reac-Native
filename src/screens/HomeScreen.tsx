@@ -4,15 +4,13 @@ import { Text, View } from 'react-native'
 import Icon from "react-native-vector-icons/Ionicons";
 import { styles } from '../theme/appTheme';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
-interface MenuItem{
-    name:string,
-    icon:string,
-    components:string,
-}
+import { MenuItem } from '../interface/appInterfaces';
+import { FlatListMenuItem } from '../components/FlatListMenuItem';
 
 
-const menuItem=[
+
+
+const menuItem:MenuItem[]=[
     {
         name:'Animation 101',
         icon:'cube-outline',
@@ -28,14 +26,6 @@ const menuItem=[
 export const HomeScreen = () => {
   
 const {top}=useSafeAreaInsets()
-
-    const renderMeniItem=(menuItem:MenuItem)=>{
-        return(
-            <View>
-                <Text>{menuItem.name}-{menuItem.icon}</Text>
-            </View>
-        )
-    }
     
     const rederListHeader=()=>{
 
@@ -64,7 +54,7 @@ const {top}=useSafeAreaInsets()
         
         <FlatList
             data={menuItem}
-            renderItem={({item})=>renderMeniItem(item)}
+            renderItem={({item})=><FlatListMenuItem menuItem={item}/>}
             keyExtractor={(item)=>item.name}
             ListHeaderComponent={()=>rederListHeader()}
             ItemSeparatorComponent={()=>itemSeparator()}
