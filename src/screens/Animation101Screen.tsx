@@ -1,43 +1,33 @@
 import React, { useRef, useState } from 'react'
-import { Animated, Button, StyleSheet, View } from 'react-native'
+import { Animated, Button, Easing, StyleSheet, View } from 'react-native'
+import { useAnimation } from '../hooks/useAnimation'
 
 
 export const Animation101Screen = () => {
+  const {opacity,position,fadeIn,fadeOut,startMovie}=useAnimation();
 
-const opacity = useRef(new Animated.Value(0.4)).current;// value maneja un solo valor , x y y  manejar dos valores 
- 
-const fadeIn=()=>{
-  Animated.timing(
-    opacity,
-    {
-      toValue:1,//valor a que necesito que llegue el valor
-      duration:300,//duraacion
-      useNativeDriver:true,// animacion acelerada por hardware
-    }
-
-  ).start();// realiza una animacion acorde aun tiempo debe ser de animated value
-}
-
-const fadeOut=()=>{
-  Animated.timing(
-    opacity,
-    {
-      toValue:0.4,
-      duration:300,
-      useNativeDriver:true
-    }
-  ).start();
-}
 
 return (
     <View style={styles.container}>
-        <Animated.View style={{...styles.purpleBox,opacity:opacity,marginBottom:20}}/>
+        <Animated.View style={
+          {
+            ...styles.purpleBox,
+            opacity,
+            marginBottom:20,
+            transform:[{//objeto de cordenada para tranaladar en los ejes un objeto
+              translateY:position
+            }]
+          }}
+            />
        <View
        style={{}}
        >
         <Button 
         title='Fade IN'
-        onPress={fadeIn}        
+        onPress={()=>{
+          fadeIn();
+          startMovie(-120);
+        }}        
         />
         <Button 
         title='Fade out'
