@@ -1,27 +1,12 @@
 import React from 'react'
 import { FlatList } from 'react-native';
 import { Text, View } from 'react-native'
-import Icon from "react-native-vector-icons/Ionicons";
+
 import { styles } from '../theme/appTheme';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { MenuItem } from '../interface/appInterfaces';
 import { FlatListMenuItem } from '../components/FlatListMenuItem';
+import { menuItem } from '../data/menuItems';
 
-
-
-
-const menuItem:MenuItem[]=[
-    {
-        name:'Animation 101',
-        icon:'cube-outline',
-        component:'Animation101Screen'
-    },
-    {
-        name:'Animation 102',
-        icon:'albumsn-outline',
-        component:'Animation102Screen'
-    },
-]
 
 export const HomeScreen = () => {
   

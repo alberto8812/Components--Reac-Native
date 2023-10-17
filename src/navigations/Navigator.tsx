@@ -1,6 +1,7 @@
 import React from 'react'
 import { createStackNavigator  } from '@react-navigation/stack';
-import { Animation101Screen, Animation102Screen, HomeScreen } from '../screens';
+import { Animation101Screen, Animation102Screen, HomeScreen, SwitchScreen } from '../screens';
+
 
 const stack=createStackNavigator ();
 
@@ -14,6 +15,7 @@ export const Navigator = () => {
         <stack.Screen name='HomeScreen' component={HomeScreen}/>
         <stack.Screen name='Animation101Screen' component={Animation101Screen}/>
         <stack.Screen name='Animation102Screen' component={Animation102Screen}/>
+        <stack.Screen name='SwitchScreen' component={SwitchScreen}/>
     </stack.Navigator>
   )
 }
