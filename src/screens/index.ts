@@ -1,3 +1,4 @@
+export { ModalScreen } from "./ModalScreen";
 export { SectionListScreen } from "./SectionListScreen";
 export { PullTorefreshScreen } from "./PullTorefreshScreen";
 export  { TextInputScreen } from "./TextInputScreen";
