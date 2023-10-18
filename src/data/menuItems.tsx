@@ -27,4 +27,14 @@ export const menuItem:MenuItem[]=[
         icon:'document-text-outline',
         component:'TextInputScreen'
     },
+    {
+        name:'PullToRefeesh',
+        icon:'text-outline',
+        component:'PullTorefreshScreen'
+    },
+    {
+        name:'SectionList',
+        icon:'list-outline',
+        component:'SectionListScreen'
+    },
 ]
