@@ -30,7 +30,7 @@ export const FadeInImage = ({uri,style}:Props) => {
         <Animated.Image
             source={{uri}}
             style={{
-                ...style,
+                ...style as any,
                 opacity
             }}
             onLoadEnd={finisLoading}//cuando se termino de cargar la imagen
