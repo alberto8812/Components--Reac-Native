@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStackNavigator  } from '@react-navigation/stack';
-import { AlertScreen, Animation101Screen, Animation102Screen, HomeScreen, InifiniScrollScreen, ModalScreen, PullTorefreshScreen, SectionListScreen, SlideScreen, SwitchScreen, TextInputScreen } from '../screens';
+import { AlertScreen, Animation101Screen, Animation102Screen, ChangeThemeScreen, HomeScreen, InifiniScrollScreen, ModalScreen, PullTorefreshScreen, SectionListScreen, SlideScreen, SwitchScreen, TextInputScreen } from '../screens';
 
 
 const stack=createStackNavigator ();
@@ -9,6 +9,7 @@ export const Navigator = () => (
   <stack.Navigator
     screenOptions={{
       headerShown: false
+      
     }}
   >
     <stack.Screen name='HomeScreen' component={HomeScreen} />
@@ -22,5 +23,6 @@ export const Navigator = () => (
     <stack.Screen name='ModalScreen' component={ModalScreen} />
     <stack.Screen name='InifiniScrollScreen' component={InifiniScrollScreen} />
     <stack.Screen name='SlideScreen' component={SlideScreen} />
+    <stack.Screen name='ChangeThemeScreen' component={ChangeThemeScreen} />
   </stack.Navigator>
 )

@@ -1,10 +1,18 @@
 
 import 'react-native-gesture-handler';
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer,DefaultTheme,DarkTheme, Theme   } from '@react-navigation/native';
 import { Navigator } from './src/navigations/Navigator';
 import { Text,View } from 'react-native';
 
+
+const CustomThem:Theme={
+  dark:true,
+  colors:{
+    ...DefaultTheme.colors,
+   // background:'gray',
+  }
+}
 
 
 
@@ -13,7 +21,7 @@ import { Text,View } from 'react-native';
     // <View>
     //   <Text>CARLOS</Text>
     // </View>
-     <NavigationContainer>
+     <NavigationContainer theme={CustomThem}>
        <Navigator/>
      </NavigationContainer>
   )
