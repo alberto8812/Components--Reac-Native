@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStackNavigator  } from '@react-navigation/stack';
-import { AlertScreen, Animation101Screen, Animation102Screen, HomeScreen, ModalScreen, PullTorefreshScreen, SectionListScreen, SwitchScreen, TextInputScreen } from '../screens';
+import { AlertScreen, Animation101Screen, Animation102Screen, HomeScreen, InifiniScrollScreen, ModalScreen, PullTorefreshScreen, SectionListScreen, SwitchScreen, TextInputScreen } from '../screens';
 
 
 const stack=createStackNavigator ();
@@ -21,6 +21,7 @@ export const Navigator = () => {
         <stack.Screen name='PullTorefreshScreen' component={PullTorefreshScreen}/>
         <stack.Screen name='SectionListScreen' component={SectionListScreen}/>
         <stack.Screen name='ModalScreen' component={ModalScreen}/>
+        <stack.Screen name='InifiniScrollScreen' component={InifiniScrollScreen}/>
     </stack.Navigator>
   )
 }
