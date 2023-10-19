@@ -1,3 +1,4 @@
+export { ChangeThemeScreen } from "./ChangeThemeScreen";
 export { SlideScreen } from "./SlideScreen";
 export { InifiniScrollScreen } from "./InifiniScrollScreen";
 export { ModalScreen } from "./ModalScreen";
