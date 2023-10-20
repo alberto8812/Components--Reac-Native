@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Keyboard, KeyboardAvoidingView, StyleSheet, TextInput, TouchableWithoutFeedback, View } from 'react-native'
 import { styles } from '../theme/appTheme'
 import { HeaderTitle } from '../components/HeaderTitle'
 import { ScrollView, Switch } from 'react-native-gesture-handler'
 import { useFormText } from '../hooks/useFormText'
+import { ThemeContext } from '../context/themeContext/ThemeContext'
 
 
 
@@ -25,6 +26,7 @@ const initialVlue:form={
 export const TextInputScreen = () => {
 
 const {form,onChange,name,email,phone}=useFormText(initialVlue);
+const {theme:{colors,currentTheme}}=useContext(ThemeContext);
 
   return (
     <KeyboardAvoidingView>
@@ -34,7 +36,7 @@ const {form,onChange,name,email,phone}=useFormText(initialVlue);
                 <HeaderTitle title='TextInput'/>
 
                 <TextInput 
-                    style={stylesScreen.TextInpuStyle}
+                    style={{...stylesScreen.TextInpuStyle,color:colors.text,borderColor:colors.border}}
                     placeholder='ingrese number'
                     autoCorrect={false}// para que no realice correcciones 
                     value={form.name}
@@ -42,7 +44,7 @@ const {form,onChange,name,email,phone}=useFormText(initialVlue);
                     onChangeText={(value)=>onChange(value,'name')}
                 />
                 <TextInput 
-                    style={stylesScreen.TextInpuStyle}
+                    style={{...stylesScreen.TextInpuStyle,color:colors.text,borderColor:colors.border}}
                     autoCorrect={false}// para que no realice correcciones 
                     placeholder='ingrese su email'
                     autoCapitalize='none'// not capitalizar palabras
@@ -51,7 +53,7 @@ const {form,onChange,name,email,phone}=useFormText(initialVlue);
                     keyboardType='email-address'//definimos las caracteristicas que traiga el teclado ejemplo @
                 />
                 <TextInput 
-                    style={stylesScreen.TextInpuStyle}
+                    style={{...stylesScreen.TextInpuStyle,color:colors.text,borderColor:colors.border}}
                     autoCorrect={false}// para que no realice correcciones 
                     placeholder='ingrese su telefono'
                     autoCapitalize='none'// capitalizar palabras
@@ -61,7 +63,7 @@ const {form,onChange,name,email,phone}=useFormText(initialVlue);
                 />
 
                 <Switch
-                   trackColor={{false:'#D9D9DB',true:'#5856D6'}}
+                    trackColor={{false: colors.primary, true: colors.text}}
                    onValueChange={(value)=>onChange(value,'isSubcreibe')}
                    value={form.isSubcreibe}
              
