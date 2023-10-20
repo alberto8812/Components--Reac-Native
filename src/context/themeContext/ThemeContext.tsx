@@ -1,5 +1,7 @@
-import React,{ createContext, useReducer } from "react";
-import { ThemeReducer, ThemeState, lightThem } from "./ThemeReducer";
+import React,{ createContext, useEffect, useReducer } from "react";
+import { DarkTheme, ThemeReducer, ThemeState, lightThem } from "./ThemeReducer";
+import { AppState, useColorScheme } from "react-native";
+import { useFocusEffect } from "@react-navigation/native";
 
 
 
@@ -15,8 +17,24 @@ export const ThemeProvider=({children}:any)=>{
     /**
      * se crear el proveedor del contexto que es un HOC 
      */
+
+    const colorScheme=useColorScheme();//trabaja con las propiedades  de dark y light
   
-    const [theme, dispatch] = useReducer(ThemeReducer,lightThem)
+    const [theme, dispatch] = useReducer(ThemeReducer,(colorScheme==='dark')?DarkTheme:lightThem)
+
+
+    // useEffect(() => {
+    //  AppState.addEventListener('change',(status)=>{
+    //     if(status==='active'){
+    //         (  colorScheme==='light')?setLightTheme():setDarkTheme();
+    //     }
+    //  })//me dice como se encuentra el estado de aplicacion
+    // }, [])
+    
+    useEffect(() => {
+      (  colorScheme==='light')?setLightTheme():setDarkTheme();
+    }, [colorScheme])
+    
 
     const setDarkTheme=()=>{
         dispatch({type:'set_dark_theme'});
@@ -26,6 +44,7 @@ export const ThemeProvider=({children}:any)=>{
         dispatch({type:'set_light_theme'});
         console.log("ligth")
     };
+
 
     return(
         <ThemeContext.Provider value={{

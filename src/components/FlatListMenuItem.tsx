@@ -28,12 +28,12 @@ export const FlatListMenuItem = ({menuItem}:Props) => {
                 color={colors.primary}
                 size={23}
                 />
-            <Text style={styles.itemText}>{menuItem.name}</Text>
+            <Text style={{...styles.itemText,color:colors.text}}>{menuItem.name}</Text>
 
             <View style={styles.arrowContanines}>
             <Icon 
                 name="chevron-forward-outline"
-                color="#5856d6"
+                color={colors.card}
                 size={23}
                 
                 />

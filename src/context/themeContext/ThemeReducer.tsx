@@ -19,9 +19,9 @@ export const  lightThem:ThemeState={
     colors:{
         primary: '#084F6A',
         background: 'white',
-        card: 'green',
+        card: 'white',
         text: 'black',
-        border: 'orange',
+        border: 'black',
         notification: 'teal',
     },
     dividerColor:'rgba(0,0,0,0.7)'
